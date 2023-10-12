@@ -1,8 +1,10 @@
 자신을 참조하는 객체의 수를 센다.
-![[Pasted image 20231005174223.png]]
+![](https://i.imgur.com/yg5JlLF.png)
+
 
 문제점 - 순환 참조 문제
-![[Pasted image 20231005174342.png]]
+![](https://i.imgur.com/a4BkHhh.png)
+
 
 위와 같이 서로 참조하는 객체 두개를 참조 해제 해도 서로를 참조하고 있어서 참조 카운트가 1이 된다.
 

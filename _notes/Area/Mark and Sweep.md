@@ -2,5 +2,6 @@
 
 루트에서 접근이 불가능한 객체를 수거한다.
 
-![[Pasted image 20231005175413.png]]
+![](https://i.imgur.com/EDjT5My.png)
+
 
