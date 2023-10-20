@@ -79,3 +79,6 @@ console.log(obj);
 숫자로 시작할 수 없고, 변수를 포함할 수 없음.  
 **bracket notation 은 key값이 변수일 때 주로 사용**하며  
 숫자, 변수, 공백 모두 사용할 수 있음.
+
+[[Object-foreach]] - Object를 이용한 foreach문
+

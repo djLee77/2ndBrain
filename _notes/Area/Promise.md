@@ -1,0 +1,1 @@
+`Promise`는 JavaScript
