@@ -12,8 +12,8 @@
 
 [[async 와 await]]
 
-[[callBack 함수]]
-
 [[생성자(constructor)]]
 
 [[throw]]
+
+[[함수(Function)]]

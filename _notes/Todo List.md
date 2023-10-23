@@ -1,8 +1,11 @@
-- [ ] 캡스톤 프로젝트 배포하기
-- [ ] 해시에 대해 정리하고 티스토리 작성
-- [ ] Set Map Object에 대해 정리하고 티스토리 작성
+### 오늘의 할 일
+
+- [ ] 백준 문제 풀기
+- [ ] Guide 체크리스트 만들기
+- [ ] 옵시디언 폴더 정리하기(알고리즘 폴더 만들기, javascript 명령어 폴더 만들고 링크화시키기)
+- [ ] https://techwell.wooritech.com/docs/languages/javascript/execution-context/ <- 읽어보기
+- [ ] 캡스톤 web3 교수님이 올려준 자료들 읽어보기
+-----
+### 언젠가 할 일
+
 - [ ] SPA에 대해 정리 및 티스토리 작성
-- [ ] 대회 전 ICPC 기출문제 풀어보기
-- [ ] DFS, BFS 숙지하기
-- [ ] Obsidian 배포하는법 포스팅하기
-- [ ] Obsidian 배포 폴더 동기화하기
