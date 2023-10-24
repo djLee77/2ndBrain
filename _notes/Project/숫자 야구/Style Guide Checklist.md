@@ -14,6 +14,7 @@ const item = new Object();
 const item = {};
 ```
 
+
 - [ ] 3-2. 동적인 이름의 속성을 추가할 때는 아래와 같이할 것
 ```javascript
 function getKey(k) {
