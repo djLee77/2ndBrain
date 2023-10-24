@@ -10,7 +10,7 @@
 //bad
 const item = new Object();
 
-/good
+//good
 const item = {};
 ```
 
@@ -28,7 +28,7 @@ const obj = {
 
 obj[getKey('enabled')] = true;
 
-/good
+//good
 const obj = {
   id: 5,
   name: 'San Francisco',
@@ -47,7 +47,7 @@ const atom = {
   },
 };
 
-/good
+//good
 const atom = {
   value: 1,
 
@@ -66,7 +66,7 @@ const obj = {
   lukeSkywalker: lukeSkywalker,
 };
 
-/good
+//good
 const obj = {
   lukeSkywalker,
 };
@@ -87,7 +87,7 @@ const obj = {
   anakinSkywalker,
 };
 
-/good
+//good
 const obj = {
   lukeSkywalker,
   anakinSkywalker,
@@ -107,7 +107,7 @@ const bad = {
   'data-blah': 5,
 };
 
-/ good
+// good
 const good = {
   foo: 3,
   bar: 4,
@@ -122,14 +122,14 @@ const good = {
 // bad
 console.log(obj.hasOwnProperty(key));
 
-/ good
+// good
 console.log(Object.prototype.hasOwnProperty.call(obj, key));
 
-/ better
+// better
 const has = Object.prototype.hasOwnProperty; // cache the lookup once, in module scope.
 console.log(has.call(obj, key));
 
-/ best
+// best
 console.log(Object.hasOwn(obj, key)); // only supported in browsers that support ES2022
 
 /* or */
@@ -151,7 +151,7 @@ const original = { a: 1, b: 2 };
 const copy = Object.assign({}, original, { c: 3 }); // copy => { a: 1, b: 2, c: 3 }
 //이렇게 하면 얕게 복사는 되지만 코드 가독성이 떨어진다.
 
-/ good
+// good
 const original = { a: 1, b: 2 };
 const copy = { ...original, c: 3 }; // copy => { a: 1, b: 2, c: 3 }
 
@@ -167,7 +167,7 @@ const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
 // bad
 const items = new Array();
 
-/ good
+// good
 const items = [];
 ```
 
@@ -178,7 +178,7 @@ const someStack = [];
 // bad
 someStack[someStack.length] = 'abracadabra';
 
-/ good
+// good
 someStack.push('abracadabra');
 ```
 
@@ -193,7 +193,7 @@ for (i = 0; i < len; i += 1) {
   itemsCopy[i] = items[i];
 }
 
-/ good
+// good
 const itemsCopy = [...items];
 ```
 
@@ -204,7 +204,7 @@ const foo = document.querySelectorAll('.foo');
 // good
 const nodes = Array.from(foo);
 
-/ best
+// best
 const nodes = [...foo];
 ```
 
@@ -215,7 +215,7 @@ const arrLike = { 0: 'foo', 1: 'bar', 2: 'baz', length: 3 };
 // bad
 const arr = Array.prototype.slice.call(arrLike);
 
-/ good
+// good
 const arr = Array.from(arrLike);
 
 // result
@@ -231,20 +231,20 @@ const bar = num => num * 2;
 // bad
 const baz1 = [...foo].map(bar); // => [2, 4, 6]
 
-/ good
+// good
 const baz2 = Array.from(foo, bar); // => [2, 4, 6]
 
 ```
 
 - [ ] 4-7. 배열의 메소드 콜백에서 반드시 return값을 갖도록 해라.
 ```javascript
-/ good
+// good
 [1, 2, 3].map((x) => {
   const y = x + 1;
   return x * y;
 });
 
-/ good - 화살표 함수는 결과를 바로 반환한다.
+// good - 화살표 함수는 결과를 바로 반환한다.
 [1, 2, 3].map((x) => x + 1);
 
 // bad - no returned value means `acc` becomes undefined after the first iteration
@@ -252,7 +252,7 @@ const baz2 = Array.from(foo, bar); // => [2, 4, 6]
   const flatten = acc.concat(item);
 });
 
-/ good
+// good
 [[0, 1], [2, 3], [4, 5]].reduce((acc, item, index) => {
   const flatten = acc.concat(item);
   return flatten;
@@ -268,7 +268,7 @@ inbox.filter((msg) => {
   }
 });
 
-/ good
+// good
 inbox.filter((msg) => {
   const { subject, author } = msg;
   if (subject === 'Mockingbird') {
@@ -296,7 +296,7 @@ const numberInArray = [
   1, 2,
 ];
 
-/ good
+// good
 const arr = [[0, 1], [2, 3], [4, 5]];
 
 const objectInArray = [
@@ -328,13 +328,13 @@ function getFullName(user) {
   return `${firstName} ${lastName}`;
 }
 
-/ good
+// good
 function getFullName(user) {
   const { firstName, lastName } = user;
   return `${firstName} ${lastName}`;
 }
 
-/ best
+// best
 function getFullName({ firstName, lastName }) {
   return `${firstName} ${lastName}`;
 }
@@ -372,7 +372,7 @@ function processInput(input) {
 // the caller needs to think about the order of return data
 const [left, __, top] = processInput(input);
 
-/ good
+// good
 function processInput(input) {
   // then a miracle occurs
   return { left, right, top, bottom };
@@ -410,7 +410,7 @@ const errorMessage = 'This is a super long error that was thrown because ' +
   'of Batman. When you stop to think about how Batman had anything to do ' +
   'with this, you would get nowhere fast.';
 
-/ good
+// good
 const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
 ```
 
@@ -431,7 +431,7 @@ function sayHi(name) {
   return `How are you, ${ name }?`;
 }
 
-/ good
+// good
 function sayHi(name) {
   return `How are you, ${name}?`;
 }
@@ -444,7 +444,7 @@ function sayHi(name) {
 // bad
 const foo = '\'this\' \i\s \"quoted\"';
 
-/ good
+// good
 const foo = '\'this\' is "quoted"';
 const foo = `my name is '${name}'`;
 ```
@@ -466,7 +466,7 @@ const foo = function () {
   // ...
 };
 
-/ good
+// good
 // lexical name distinguished from the variable-referenced invocation(s)
 const short = function longUniqueMoreDescriptiveLexicalFoo() {
   // ...
@@ -499,7 +499,7 @@ if (currentUser) {
   }
 }
 
-/ good
+// good
 let test;
 if (currentUser) {
   test = () => {
@@ -529,7 +529,7 @@ function concatenateAll() {
   return args.join('');
 }
 
-/ good
+// good
 function concatenateAll(...args) {
   return args.join('');
 }
