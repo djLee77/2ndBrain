@@ -6,6 +6,7 @@
 ### 3. Objects
 
 - [ ] 3-1. Object를 만들 떄는 literal 문법을 사용할 것
+
 ```javascript
 //bad
 const item = new Object();
@@ -13,7 +14,6 @@ const item = new Object();
 //good
 const item = {};
 ```
-
 
 - [ ] 3-2. 동적인 이름의 속성을 추가할 때는 아래와 같이할 것
 ```javascript
