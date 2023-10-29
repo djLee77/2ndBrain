@@ -30,4 +30,15 @@ JavaScript String은 변경할 수 없습니다. 즉, String이 생성되면 수
 
 
 wrapper 객체 내장함수
+
 [[String.indexOf(), String.includes()]] -문자열 포함여부 확인하는 법
+
+string.startsWith( 탐색할 문자열, index );
+
+```javascript
+const str = "Tom is thinking";
+const name = "Tom";
+console.log(str.startsWith(name)); // true
+```
+
+string.endsWith(탐색할 문자열);

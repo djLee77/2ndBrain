@@ -1,8 +1,50 @@
+
+# 목차
+
+
+> [!NOTE] 목차
+> [[#1. Types]]
+ [[#2. References]]
+ [[#3. Objects]]
+ [[#4. Arrays]]
+ [[#5. Destructuring(구조 분해)]]
+ [[#6. Strings]]
+ [[#7. function]]
+
+
+### 1. Types
+
+- [ ] 1.1 원시값 : 원시 타입의 특징은 값을 직접 다룬다는 것입니다. 예를 들어, 원시 타입의 변수를 다른 변수에 할당하면, 그 값의 복사본이 새로운 변수에 저장됩니다. 그래서 원래 변수의 값을 변경해도 새로운 변수의 값에는 영향을 주지 않습니다. 
+
+```js
+const foo = 1;
+let bar = foo;
+
+bar = 9;
+
+console.log(foo, bar); // => 1, 9
+```
+
+- [ ] 1.1 복합 타입 : 복합 타입의 특징은 값을 참조로 다룬다는 것입니다. 예를 들어, 복합 타입의 변수를 다른 변수에 할당하면, 두 변수 모두 같은 데이터의 참조를 가리킵니다. 따라서 하나의 변수에서 참조하는 데이터를 변경하면, 다른 변수에서도 그 변경을 반영합니다. 
+
+```js
+const foo = [1, 2];
+const bar = foo;
+
+bar[0] = 9;
+
+console.log(foo[0], bar[0]); // => 9, 9
+
+```
+
+---
+
 ### 2. References
 
 - [ ] 2. var의 사용을 피하고 되도록 const사용, 값을 바꿔야하다면 let을 사용해라. 
 
 ---
+
 ### 3. Objects
 
 - [ ] 3-1. Object를 만들 떄는 literal 문법을 사용할 것
@@ -565,4 +607,124 @@ function concatenateAll(...args) {
 }
 ```
 
-- [ ] 
+- [ ] 7.7 함수 인자를 변경하는 대신 [[기본 매개변수 문법]]을 사용하세요.
+
+```js
+//really bad
+function handleThings(opts) {
+  opts = opts || {};
+}
+
+//bad
+function handleThings(opts) {
+  if (opts === void 0) {
+    opts = {};
+  }
+}
+
+//good
+function handleThings(opts = {}) {
+  // ...
+}
+
+```
+
+- [ ] 7.8 기본 매개변수를 사용할 때는 부작용을 조심하자.
+
+```js
+let b = 1;
+// bad
+function count(a = b++) {
+  console.log(a);
+}
+count();  // 1
+count();  // 2
+count(3); // 3
+count();  // 3
+```
+
+- [ ] 7.9 기본 매개변수는 항상 인자들 중 가장 마지막에 위치시키자.
+
+```js
+// bad
+function handleThings(opts = {}, name) {
+  // ...
+}
+
+// good
+function handleThings(name, opts = {}) {
+  // ...
+}
+```
+
+- [ ] 7.10 'Function' 생성자를 사용하여 함수 만들기 금지
+	`Function` 생성자를 사용하여 함수를 생성할 때, 문자열을 코드로 평가하는 방식을 사용하기 때문에 `eval()`과 유사하게 많은 보안 취약점과 문제점을 가지고 있기 때문이다.
+
+```js
+// bad
+const add = new Function('a', 'b', 'return a + b');
+
+// still bad
+const subtract = Function('a', 'b', 'return a - b');
+
+```
+
+- [ ] 7.11 함수 선언과 함수 표현식에 공백을 넣어주자.
+
+```js
+// bad
+const f = function(){};
+const g = function (){};
+const h = function() {};
+
+// good
+const x = function () {};
+const y = function a() {};
+
+```
+
+- [ ] 7.12 함수의 매개변수를 변경하지 말자.
+	이유 - 매개변수로 전달된 객체를 변경하면, 해당 객체를 참조하는 원본 호출자에서도 해당 객체가 변경되기 때문에 ([[#1. Types]] - Complex Type 참고)버그의 원인이 될 수 있다.
+
+```js
+// bad
+function f1(obj) {
+  obj.key = 1;
+}
+
+const myObj = { key: 0 };
+f1(myObj);
+console.log(myObj.key);  // 출력: 1
+
+// good
+function f2(obj) {
+  const key = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1;
+}
+```
+
+- [ ] 7.13 매개변수를 재할당하지 말자. 매개변수에 기본값을 주고싶다면 [[기본 매개변수 문법]]을 사용하거나 아래와 같은 코드로 작성하자.
+
+```js
+// bad
+function f1(a) {
+  a = 1;
+  // ...
+}
+
+function f2(a) {
+  if (!a) { a = 1; }
+  // ...
+}
+
+// good
+function f3(a) {
+  const b = a || 1;
+  // ...
+}
+
+function f4(a = 1) {
+  // ...
+}
+```
+
+- [ ] [[call 과 apply 메서드]]
