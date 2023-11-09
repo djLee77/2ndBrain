@@ -2,6 +2,7 @@ https://github.com/Ileriayo/markdown-badges#markdown-badges - 뱃지 모음 리�
 
 https://www.webfx.com/tools/emoji-cheat-sheet/ -이모지 사이트
 
+[Shields.io | Shields.io](https://shields.io/) - 뱃지 생성 사이트
 
 마크다운은 산문을 읽고, 쓰고, 편집하기 쉬운 목적으로 만들어진 문서 작성을 위한 형식으로 사용되며 문법이 간결하고 HTML 삽입이 가능합니다.
 

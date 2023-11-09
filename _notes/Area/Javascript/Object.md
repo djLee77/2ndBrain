@@ -81,4 +81,22 @@ console.log(obj);
 숫자, 변수, 공백 모두 사용할 수 있음.
 
 [[Object-foreach]] - Object를 이용한 foreach문
+```js
+Object.entries(this.results).forEach(([key, value]) => { console.log(`${key}: ${value}`); });
+```
 
+### object에 key가 존재하는지 확인하는 법
+
+[Object.keys](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)는 객체의 키를 배열로 리턴한다. 이를 이용하여 찾는 값이 있는지 알 수 있을 것이다!!
+
+```javascript
+const object_1 = {
+	test_1:'test 1'
+}
+
+const isExist_1 = Object.keys(object_1).includes('test_1')
+const isExist_2 = Object.keys(object_1).includes('test_2')
+
+console.log(isExist_1) // true
+console.log(isExist_2) // false
+```

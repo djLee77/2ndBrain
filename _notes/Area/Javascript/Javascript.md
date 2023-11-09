@@ -17,3 +17,7 @@
 [[throw]]
 
 [[함수(Function)]]
+
+[[배열]]
+
+[[Class]]
