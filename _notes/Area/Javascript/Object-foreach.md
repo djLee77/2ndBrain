@@ -9,3 +9,9 @@ for (const [key, value] of Object.entries(object1)) {
 }
 ```
 
+```js
+Object.entries(obj).forEach(([key, value]) => {
+  console.log(`${key} ${value}`); // "a 5", "b 7", "c 9"
+});
+```
+
