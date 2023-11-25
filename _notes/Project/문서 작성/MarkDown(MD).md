@@ -4,6 +4,10 @@ https://www.webfx.com/tools/emoji-cheat-sheet/ -이모지 사이트
 
 [Shields.io | Shields.io](https://shields.io/) - 뱃지 생성 사이트
 
+https://github.com/anuraghazra/github-readme-stats/blob/master/themes/README.md - 리드미 스텟 카드 테
+
+https://github.com/ashutosh00710/github-readme-activity-graph - 리드미 그래프 카드
+
 마크다운은 산문을 읽고, 쓰고, 편집하기 쉬운 목적으로 만들어진 문서 작성을 위한 형식으로 사용되며 문법이 간결하고 HTML 삽입이 가능합니다.
 
 이때 마크다운을 작성한 문서의 표현 방식은 CSS의 설정에 따라 달라집니다. 
